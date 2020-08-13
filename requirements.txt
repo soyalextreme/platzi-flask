@@ -1,0 +1,10 @@
+flask==1.1.2
+python-dotenv==0.14.0
+flask-bootstrap
+flask-wtf
+flask-testing
+blinker
+firebase-admin
+flask-login==0.4.1
+
+

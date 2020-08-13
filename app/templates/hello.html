@@ -1,0 +1,10 @@
+{% extends "base.html"%} 
+
+{% block title%} {{super()}}  Bienvenido {% endblock%}
+{% block content %} 
+    {% if user_ip %}
+      <h1> Welcome to Platzi Task's</h1>
+    {% else %}
+        <a href="{{url_for('index')}}">Go Home</a>
+    {% endif %}
+{% endblock%}

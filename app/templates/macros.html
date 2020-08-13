@@ -1,0 +1,15 @@
+{% import "badgemacro.html"  as badgemacro %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% macro render_todo(todo, idx, delete_todo_form, update_todo_form) %}
+<li class="list-group-item">
+    {% if todo.to_dict().done %}
+        {{badgemacro.render_badge("badge-success", "Done!")}}
+    {% else %}
+        {{badgemacro.render_badge("badge-danger", "Pending")}}
+    {% endif %}
+    {{idx}}- {{todo.to_dict().description}}
+    {{ wtf.quick_form(delete_todo_form , action=url_for("app.delete", todo_id=todo.id)) }}
+    {{ wtf.quick_form(update_todo_form , action=url_for("app.update", todo_id=todo.id, done=todo.to_dict().done)) }}
+</li>
+{% endmacro %}
+
